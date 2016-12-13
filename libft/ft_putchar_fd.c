@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 00:27:13 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/13 13:12:12 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/13 12:04:55 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/13 12:29:40 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *str, char (*f)(char))
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned int	i;
-	char	*src;
-	char	*dest;
-
-	
+	write(fd, &c, 1);
 }

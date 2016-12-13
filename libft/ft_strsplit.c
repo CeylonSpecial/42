@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 00:27:13 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/13 13:12:12 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/12 22:35:32 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/12 23:21:54 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *str, char (*f)(char))
+char	**ft_strsplit(char const *str, char c)
 {
-	unsigned int	i;
-	char	*src;
-	char	*dest;
-
 	
 }
