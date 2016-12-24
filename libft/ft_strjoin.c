@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new;
 
-	new = (char*) malloc(sizeof(char) * (strlen(s1) + strlen(s2)) + 1);
+	new = (char*) malloc(sizeof(char) * strlen(s1) + strlen(s2) + 1);
 	if (new == NULL)
 		return (NULL);
 	ft_strcpy(new, s1);

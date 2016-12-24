@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 23:43:08 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/11 23:54:13 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/14 16:01:05 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/19 22:47:35 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *str)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = ft_strlen(str);
-	while (i >= 0)
+	if ((tmp = (t_list*) malloc(sizeof())) == NULL)
+		return (NULL);
+	if (content != NULL && content_size != 0)
 	{
-		str[i] = '\0';
-		i--;
+		if ((tmp->content = malloc(content_size)) == NULL)
+			return (NULL);
+		ft_memcpy(tmp->content, content, content_size);
+		tmp->content_size = content_size;
 	}
+	else
+	{	
+		tmp->content = NULL;
+		tmp->content_size = 0;
+	}
+	return (tmp);
 }

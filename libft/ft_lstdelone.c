@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 23:43:08 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/11 23:54:13 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/14 16:09:16 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/17 21:10:01 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *str)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int	i;
-
-	i = ft_strlen(str);
-	while (i >= 0)
-	{
-		str[i] = '\0';
-		i--;
-	}
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

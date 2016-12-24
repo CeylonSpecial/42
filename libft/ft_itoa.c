@@ -1,25 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/13 12:38:42 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/13 12:55:01 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/13 21:08:16 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/13 21:22:28 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_itoa(int n)
+{
+	char	*number;
+	int	len;
+
+	len = findlen(n);
+	number = ft_strnew(len);
+	convert(n, number);
+	return (number);
+}
+
+int		findlen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n < 0)
+	{
+		n = -n;
+		len++;
+	}
+	while (n / 10 != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	len++;
+	return (len);
+}
+
+void 	convert(int n, char *number)
 {
 	if (n < 0)
 	{
 		n = -n;
-		ft_putchar_fd('-', fd);
+		*number = '-';
+		number++;
 	}
 	if (n / 10 != 0)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	{
+		convert(n / 10, number);
+		number = number + ft_strlen(number);
+	}
+	*number = (n % 10) + '0';
 }

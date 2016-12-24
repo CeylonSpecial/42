@@ -15,14 +15,14 @@
 void	*ft_memset(void *str, int c, size_t n)
 {
 	unsigned int	i;
-	char	*pstr;
+	unsigned char	*pstr;
 
 	i = 0;
-	pstr = (char*)str;
+	pstr = (unsigned char*)str;
 	while (i < n)
 	{
-		pstr[i] = c;
+		pstr[i] = (unsigned char)c;
 		i++;
 	}
-	return (pstr);
+	return (str);
 }

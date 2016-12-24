@@ -14,17 +14,8 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	char	*ps1;
-	char	*ps2;
-
-	ps1 = (char*)s1;
-	ps2 = (char*)s2;
-	while (*ps1 && *ps2)
-	{
-		if (*ps1 != *ps2)
-			return (0);
-		ps1++;
-		ps2++;
-	}
-	return (1);
+	if (ft_strcmp(s1, s2) == 0)
+		return (1);
+	else
+		return (0);
 }

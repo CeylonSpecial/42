@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 22:08:27 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/12 22:35:15 by csnyder          ###   ########.fr       */
+/*   Updated: 2016/12/21 20:17:23 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ char	*ft_strtrim(char const *str)
 		return (NULL);
 	while (str[i])
 	{
-		if (i == 0 || i == strlen(str) && str[i] == ' ' || str[i] == ','
-			|| str[i] == '\n' || str[i] == '\t')
+		while (str[i] == ' ' || str[i] == ',' || str[i] == '\n' || str[i] == '\t')
 			i++;
-		dest[i] == str[i];
-		i++;
+		while (i++)
+		{
+			if (str[i] == ' ' || str[i] == ',' || str[i] == '\n' || str[i] == '\t')
+				break;
+			dest[i] == str[i];
+		}
 	}
 	return (dest);
 }

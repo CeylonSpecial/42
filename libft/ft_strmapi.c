@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 12:26:43 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/06 12:42:33 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/21 19:54:01 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/21 20:01:56 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
-{
-	int	i;
-	int	sign;
-	int	output;
+#include "libft.h"
 
-	sign = 1;
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char	*dest;
+
 	i = 0;
-	result = 0;
-	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\r' ||
-				str[i] == '\v' || str[i] == ' ' || str[i] == '\f'))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	dest = ft_strnew(ft_strlen(str));
+	while (*str)
 	{
-		if (str[i] == '-')
-			sign = -1;
+		dest[i] = (*f)(i, *str);
 		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		output = (output * 10) + (str[i] - '0');
-		i++;
-	}
-	return (sign * output);
+	return (dest);
 }

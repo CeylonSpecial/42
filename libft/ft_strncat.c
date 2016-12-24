@@ -18,12 +18,13 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 	unsigned int	j;
 
 	i = 0;
-	j = strlen(dest) + 1;
+	j = strlen(dest);
 	while (i < n)
 	{
 		dest[j] = src[i];
 		j++;
 		i++;
 	}
+	dest[j] = '\0';
 	return (dest);
 }

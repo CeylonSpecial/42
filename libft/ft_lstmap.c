@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 23:43:08 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/11 23:54:13 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/17 21:41:53 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/18 14:54:32 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *str)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int	i;
-
-	i = ft_strlen(str);
-	while (i >= 0)
+	t_list	*current;
+	
+	current = lst;
+	while (current != NULL)
 	{
-		str[i] = '\0';
-		i--;
-	}
+		current = current->next;
 }

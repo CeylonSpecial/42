@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 23:43:08 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/11 23:54:13 by csnyder          ###   ########.fr       */
+/*   Created: 2016/12/17 21:30:08 by csnyder           #+#    #+#             */
+/*   Updated: 2016/12/17 21:39:45 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *str)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	int	i;
-
-	i = ft_strlen(str);
-	while (i >= 0)
+	while (lst)
 	{
-		str[i] = '\0';
-		i--;
+		f(lst);
+		lst = lst->next;
 	}
 }
