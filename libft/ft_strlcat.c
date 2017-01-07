@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/08 20:16:01 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/08 20:51:14 by csnyder          ###   ########.fr       */
+/*   Created: 2017/01/06 22:05:32 by csnyder           #+#    #+#             */
+/*   Updated: 2017/01/06 22:05:51 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+size_t  ft_strlcat(char *dst, const char *src, size_t n)
 {
-	unsigned int  i;
-	int j;
-	int counter;
+  unsigned int  i;
+  unsigned int  j;
 
-	i = 0;
-	j = 0;
-	counter = 0;
-	if (little[i] == '\0')
-		return (big);
-	while (big[i++])
-	{
-		while (big[i++] == little[j++])
-		{
-			if (j == strlen(little) - 1)
-				return (&little[j] - counter);
-			counter++;
-		}
-		j = 0;
-		counter = 0;
-	}
-	return (NULL);
+  i = 0;
+  j = 0;
+  while (i < n)
+  {
+    dest[j] = src[i];
+    j++;
+    i++;
+  }
+  return (strlen(dest) + strlen(src));
 }

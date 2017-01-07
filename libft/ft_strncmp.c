@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/08 20:16:01 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/08 20:51:14 by csnyder          ###   ########.fr       */
+/*   Created: 2017/01/06 22:06:36 by csnyder           #+#    #+#             */
+/*   Updated: 2017/01/06 22:06:49 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+int   ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int  i;
-	int j;
-	int counter;
+  unsigned int  i;
 
-	i = 0;
-	j = 0;
-	counter = 0;
-	if (little[i] == '\0')
-		return (big);
-	while (big[i++])
-	{
-		while (big[i++] == little[j++])
-		{
-			if (j == strlen(little) - 1)
-				return (&little[j] - counter);
-			counter++;
-		}
-		j = 0;
-		counter = 0;
-	}
-	return (NULL);
+  i = 0;
+  while (i < n)
+  {
+    if (s1[i] != s2[i])
+      return (s1[i] - s2[i]);
+    i++;
+  }
+  return (0);
 }
