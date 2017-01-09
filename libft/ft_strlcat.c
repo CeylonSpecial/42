@@ -18,12 +18,12 @@ size_t  ft_strlcat(char *dst, const char *src, size_t n)
   unsigned int  j;
 
   i = 0;
-  j = 0;
+  j = ft_strlen(dest);
   while (i < n)
   {
     dest[j] = src[i];
     j++;
     i++;
   }
-  return (strlen(dest) + strlen(src));
+  return (ft_strlen(dest) + ft_strlen(src));
 }

@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 12:48:52 by csnyder           #+#    #+#             */
-/*   Updated: 2017/01/04 23:55:25 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/08 16:27:17 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_strequ(char const *s1, char const s2);
 void	ft_striter(char *str, void (*f)(char *));
 void	ft_striteri(char *str, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *s1, const char *s2, size_t n);
+size_t	ft_strlcat(char *dest, const char *src, size_t n);
 int		ft_strlen(char *str);
 char	*ft_strmap(char const *str, char (*f)(char));
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
