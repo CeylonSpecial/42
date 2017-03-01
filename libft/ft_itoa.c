@@ -6,22 +6,11 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 21:08:16 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/13 21:22:28 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/19 23:13:08 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_itoa(int n)
-{
-	char	*number;
-	int	len;
-
-	len = findlen(n);
-	number = ft_strnew(len);
-	convert(n, number);
-	return (number);
-}
 
 int		findlen(int n)
 {
@@ -56,4 +45,16 @@ void 	convert(int n, char *number)
 		number = number + ft_strlen(number);
 	}
 	*number = (n % 10) + '0';
+}
+
+char	*ft_itoa(int n)
+{
+	char	*number;
+	int	len;
+
+	len = findlen(n);
+	if (!(number = ft_strnew(len)))
+		return (NULL);
+	convert(n, number);
+	return (number);
 }

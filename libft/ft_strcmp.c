@@ -6,16 +6,16 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 14:11:37 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/05 21:56:21 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/16 19:38:20 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2 && *s1 != 0)
 	{
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

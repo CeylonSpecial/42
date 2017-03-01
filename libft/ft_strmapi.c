@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 19:54:01 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/21 20:01:56 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/22 15:40:45 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@ char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 	char	*dest;
 
 	i = 0;
-	dest = ft_strnew(ft_strlen(str));
-	while (*str)
+	if (str)
 	{
-		dest[i] = (*f)(i, *str);
-		i++;
-		str++;
+		if (!(dest = ft_strnew(ft_strlen(str))))
+			return (NULL);
+		while (*str)
+		{	
+			dest[i] = (*f)(i, *str);
+			i++;
+			str++;
+		}
+		return (dest);
 	}
-	return (dest);
+	return (NULL);
 }

@@ -6,58 +6,74 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 00:28:51 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/22 21:59:21 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/03/01 13:30:44 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	**ft_strsplit(char const *str, char c)
+static int		wordcount(const char *str, char c)
 {
-	unsigned int	letters;
-	unsigned int	i;
-	char	**array;
+	unsigned int	words;
+	int	i;
 
+	words = 0;
 	i = 0;
-	letters = 0;
-	array = (char **) malloc(sizeof(char *) * wordcount(str, c));
-	while (i <= wordcount(str, c))
+	while (str[i])
 	{
-		while (*str && (*str == c))
-			str++;
-		while (*str != c)
-		{
-			letters++;
-			*str++;
-		}
-		if ((array[i] = ft_strnew(letters)) == NULL)
-			return (NULL);
-		str--;
-		while (*str != c)
-			array[i][(letters - 1)--] = *str--;
-		str = str + (ft_strlen(array[i]) + 1);
-		i++;
-	}
-	return (array);
-}
-
-int		wordcount(char *str, char c)
-{
-	int	words;
-
-	wordcount = 0;
-	while (*str)
-	{
-		while (*str == c)
-			str++;
-		while (*str++)
-		{
-			if (*str == c)
-			{
-				words++;
+		while (str[i] == c)
+			i++;
+		while (str[i])
+		{	
+			if (str[i] == c || i == strlen(str) - 1)
+			{	
+				words++;			
+				i++;
 				break;
 			}
+			i++;
 		}
 	}
 	return (words);
+}
+
+char			**ft_strsplit(char const *str, char c)
+{
+	int	letters;
+	int	i;
+	char	**array;
+
+	i = 0;
+	array = (char **) malloc(sizeof(char *) * wordcount(str, c));
+//	while (i <= wordcount(str, c))
+//	{
+		letters = 0;
+		while (*str && (*str == c))
+			str++;
+		while (*str != c)
+		{	
+			letters++;
+			str++;
+		}
+		*array = (char*) malloc(sizeof(char) * (letters) + 1);
+		str--;
+		letters--;
+		while (*str != c)
+			array[i][letters--] = *str--;
+		printf("%s", *array);
+		str = str + strlen(array[i] - 1);
+		printf("%c", *str);
+//		i++;
+//	}
+	return (array);
+}
+
+int		main()
+{
+	char	*str;
+	
+	str = "      split       this for   me  !       ";
+	ft_strsplit(str, ' ');
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 22:07:44 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/05 21:56:01 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/22 16:29:32 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_putstr(char const *str)
 {
-	int index;
+	int i;
 
-	index = 0;
-	while (str[index] != '\0')
+	i = 0;
+	if (str)
 	{
-		ft_putchar(str[index]);
-		index++;
+		while (str[i])
+		{
+			ft_putchar(str[i]);
+			i++;
+		}
 	}
 }

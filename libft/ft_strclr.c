@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 23:43:08 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/11 23:54:13 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/20 16:53:48 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_strclr(char *str)
 {
 	int	i;
 
-	i = ft_strlen(str);
-	while (i >= 0)
+	if (str)
 	{
-		str[i] = '\0';
-		i--;
-	}
+		i = ft_strlen(str);
+		while (i >= 0)
+		{
+			str[i] = '\0';
+			i--;
+		}
+	}	
 }

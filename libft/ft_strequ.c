@@ -6,7 +6,7 @@
 /*   By: csnyder <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 00:59:49 by csnyder           #+#    #+#             */
-/*   Updated: 2016/12/12 01:08:38 by csnyder          ###   ########.fr       */
+/*   Updated: 2017/01/22 15:44:24 by csnyder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	if (ft_strcmp(s1, s2) == 0)
+	if (s1 && s2 && ft_strcmp(s1, s2) == 0)
 		return (1);
 	else
 		return (0);
